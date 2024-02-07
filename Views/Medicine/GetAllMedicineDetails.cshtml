@@ -1,0 +1,75 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Get All Medicines Details";
+}
+@model List<HopePharmacy.Models.MedicineDetailsModel>;
+<html>
+<head>
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
+<body>
+
+    <div class="row" style="padding-top:25px">
+        <div class="col-md-12">
+            <table class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Medicine Name</th>
+                        <th>Supplier Name</th>
+                        <th>Cost Price</th>
+                        <th>Selling Price</th>
+                        <th>Expiary Date</th>
+                        <th>Original Quantity</th>
+                        <th>Left Quantity</th>
+                        <th>Description</th>
+                        <th>Discount Value</th>
+                        <th>Tax Value</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (HopePharmacy.Models.MedicineDetailsModel medicine in Model)
+                    {
+                        <tr>
+                            <td>@medicine.MedicineName</td>
+                            <td>@medicine.SupplierName</td>
+                            <td>@medicine.CostPrice</td>
+                            <td>@medicine.SellingPrice</td>
+                            <td>@medicine.ExpiaryDate</td>
+                            <td>@medicine.OriginalQuantity</td>
+                            <td>@medicine.LeftQuantity</td>
+                            <td>@medicine.Description</td>
+                            <td>@medicine.DiscountValue</td>
+                            <td>@medicine.TaxValue</td>
+                        </tr>
+                    }
+
+
+
+                </tbody>
+
+
+
+
+
+            </table>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+
+
+
+
+
+
+
+</html>

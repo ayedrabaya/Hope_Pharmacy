@@ -1,0 +1,75 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<HopePharmacy.Models.SuppliersModel>;
+
+<html>
+    <head>
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    </head>
+    <body>
+    <h3 style="text-align:center"> Get All Suppliers</h3>
+    <div class="row" style="padding-top:25px">
+        <div class="col-md-12">
+            <a href="Create">
+                Create New Suppliers
+            </a>
+            </div>
+            </div>
+
+        <div class="row" style="padding-top:25px">
+            <div class="col-md-12">
+            <table class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Suppliers Name</th>
+                            <th>Mobile</th>
+                            <th>Address</th>
+                        <th>Manufacture Name</th>
+                        <th>Actions</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach(HopePharmacy.Models.SuppliersModel suppliers in Model)
+                        {
+                            <tr>
+                            <td>@suppliers.SupplierName</td>
+                            <td>@suppliers.Mobile</td>
+                            <td>@suppliers.Address</td>
+                            <td>@suppliers.ManufactureName</td>
+                            <td>
+                                <a asp-controller="Suppliers" asp-action="Edit" asp-route-Id="@suppliers.SupplierId" class="fas fa-pencil-alt"></a>
+                                <a asp-controller="Suppliers" asp-action="Delete" asp-route-Id="@suppliers.SupplierId" class="fas fa-user-times"></a>
+                            </td>
+                            </tr>
+                        }
+
+                            
+                       
+                    </tbody>
+
+
+
+
+
+                </table>
+
+
+            </div>
+
+        </div>
+
+
+    </body>
+
+
+
+
+
+
+
+</html>

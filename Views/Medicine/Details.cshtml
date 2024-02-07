@@ -1,0 +1,97 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Add New Details";
+}
+@model HopePharmacy.Models.MedicineDetailsModel;
+<html>
+<head>
+
+</head>
+<body>
+    <form asp-action="AddMedicineDetails">
+        <div class="row" style="padding-top:25px">
+            <div class="col-md-4">
+                Supplier Name
+                <span class="text-danger">*</span>
+                <select asp-for="SupplierId" class="form-control"
+                        asp-items="@(new SelectList(ViewBag.supplier,"SuppliersId","SupplierName"))">
+                    <option value="">Please Select</option>
+
+                </select>
+                <span asp-validation-for="SupplierId" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                Cost Price
+                <span class="text-danger">*</span>
+                <input type="text" class="form-control" asp-for="CostPrice" />
+                <span asp-validation-for="CostPrice" class="text-danger"></span>
+
+            </div>
+            <div class="col-md-4">
+                Selling Price
+                <span class="text-danger">*</span>
+                <input type="text" class="form-control" asp-for="SellingPrice" />
+                <span asp-validation-for="SellingPrice" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row" style="padding-top:25px">
+            <div class="col-md-4">
+                Expiary Date
+                <span class="text-danger">*</span>
+                <input type="date" class="form-control" asp-for="ExpiaryDate" />
+                <span asp-validation-for="ExpiaryDate" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                Original Quantity
+                <span class="text-danger">*</span>
+                <input type="number" class="form-control" min="0" max="100" maxlength="3" asp-for="OriginalQuantity" />
+                <span asp-validation-for="OriginalQuantity" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                Left Quantity
+                <span class="text-danger">*</span>
+                <input type="number" class="form-control" min="0" max="100" maxlength="3" asp-for="LeftQuantity" />
+                <span asp-validation-for="LeftQuantity" class="text-danger"></span>
+            </div>
+
+
+
+        </div>
+        <div class="row" style="padding-top:25px">
+            <div class="col-md-4">
+                Discount Value
+                <span class="text-danger">*</span>
+                <input type="text" class="form-control" asp-for="DiscountValue" />
+                <span asp-validation-for="DiscountValue" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                Tax Value
+                <span class="text-danger">*</span>
+                <input type="text" class="form-control" min="0" asp-for="TaxValue" />
+                <span asp-validation-for="TaxValue" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                Description
+                <input type="text" class="form-control"  asp-for="Description" />
+            </div>
+
+        </div>
+        <div class="row" style="padding-top:25px">
+            <div class="col-md-4">
+                <input type="text" asp-for="MedicineId" value="@ViewBag.MedicineId" />
+                <input type="submit" class="btn btn-danger" value="Save" />
+            </div>
+        </div>
+    </form>
+
+</body>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}
+</html>
+

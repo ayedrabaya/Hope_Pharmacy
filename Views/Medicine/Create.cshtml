@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Create New Medicine";
+}
+@model HopePharmacy.Models.MedicineModel;
+<html>
+    <head>
+
+    </head>
+
+    <body>
+    <form asp-action="AddNewMedicine">
+        <div class="row" style="padding-top:25px">
+            <div class="col-md-4">
+                Medicine Name
+                <span class="text-danger">*</span>
+                <input type="text"  class="form-control" asp-for="MedicineName"/>
+            <span asp-validation-for="MedicineName" class="text-danger"></span>
+            </div>
+        </div>
+    <div class="row" style="padding-top:25px">
+        <div class="col-md-4">
+            <input type="submit" class="btn btn-primary" value="save"  />
+            
+        </div>
+    </div>
+    </form>
+
+
+
+    </body>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}
+</html>
